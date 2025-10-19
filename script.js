@@ -169,13 +169,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Scroll to appropriate section
             setTimeout(() => {
                 if (role === 'player') {
-                    // Scroll to player section (the struggle every player knows)
-                    document.getElementById('player-section').scrollIntoView({
+                    // Scroll to features section (Find Walls and Nets Anywhere)
+                    document.getElementById('features').scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
                 } else if (role === 'coach') {
-                    // Scroll to coach section (after routines)
+                    // Scroll to coach section (Track Your Team's Progress)
                     document.getElementById('coach-section').scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
