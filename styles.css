@@ -217,6 +217,27 @@ body {
     padding: 80px 0;
     background: var(--secondary-gray);
     text-align: center;
+    position: relative;
+}
+
+.user-selector::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
+}
+
+.user-selector::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
 }
 
 .user-selector h2 {
@@ -279,7 +300,7 @@ body {
 
 /* Coach Features Section */
 .coach-features-section {
-    padding: 100px 0;
+    padding: 100px 0 40px 0;
     background: var(--secondary-gray);
 }
 
@@ -287,6 +308,17 @@ body {
 .problem-section {
     padding: 100px 0;
     background: var(--dark-bg);
+    position: relative;
+}
+
+.problem-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
 }
 
 .section-intro {
@@ -343,7 +375,7 @@ body {
 
 /* Features Section */
 .features-section {
-    padding: 100px 0;
+    padding: 100px 0 40px 0;
     background: var(--secondary-gray);
 }
 
@@ -359,7 +391,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
-    margin-bottom: 120px;
+    margin-bottom: 0;
 }
 
 .feature.reverse {
@@ -543,10 +575,179 @@ body {
     font-size: 15px;
 }
 
+/* Screenshots Slideshow Section */
+.screenshots-gallery {
+    padding: 100px 0;
+    background: var(--dark-bg);
+    position: relative;
+}
+
+.screenshots-gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
+}
+
+.gallery-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 18px;
+    margin-top: -60px;
+    margin-bottom: 60px;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.slideshow-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    background: var(--secondary-gray);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(223, 255, 0, 0.15);
+    aspect-ratio: 9/19.5;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 30px;
+}
+
+/* Navigation Arrows */
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(223, 255, 0, 0.9);
+    color: var(--secondary-gray);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.slide-nav:hover {
+    background: var(--primary-volt);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(223, 255, 0, 0.4);
+}
+
+.slide-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.slide-nav.prev {
+    left: 0;
+}
+
+.slide-nav.next {
+    right: 0;
+}
+
+.slide-nav svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dot Indicators */
+.slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dot:hover {
+    background: var(--text-gray);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: var(--primary-volt);
+    border-color: var(--primary-volt);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Section Dividers */
+.problem-section::after,
+.features-section::after,
+.coach-features-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
+}
+
+.features-section,
+.coach-features-section {
+    position: relative;
+}
+
 /* FAQ Section */
 .faq-section {
     padding: 100px 0;
     background: var(--secondary-gray);
+    position: relative;
+}
+
+.faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
 }
 
 .faq-grid {
@@ -618,6 +819,17 @@ body {
     padding: 80px 0;
     background: var(--dark-bg);
     text-align: center;
+    position: relative;
+}
+
+.email-capture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
 }
 
 .email-capture-content h2 {
@@ -730,6 +942,17 @@ body {
     padding: 120px 0;
     background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-gray) 100%);
     text-align: center;
+    position: relative;
+}
+
+.final-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-volt) 50%, transparent 100%);
 }
 
 .cta-content h2 {
@@ -962,7 +1185,7 @@ body {
     .feature {
         grid-template-columns: 1fr;
         gap: 40px;
-        margin-bottom: 80px;
+        margin-bottom: 0;
     }
 
     .feature.reverse {
@@ -1035,6 +1258,35 @@ body {
         font-size: 24px;
     }
 
+    .slideshow-container {
+        padding: 0 45px;
+        max-width: 300px;
+    }
+
+    .gallery-subtitle {
+        font-size: 16px;
+        margin-top: -40px;
+        margin-bottom: 40px;
+    }
+
+    .slide-nav {
+        width: 36px;
+        height: 36px;
+    }
+
+    .slide-nav svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .slideshow-wrapper {
+        border-radius: 20px;
+    }
+
+    .slide img {
+        border-radius: 20px;
+    }
+
     .problem-grid,
     .steps-grid {
         grid-template-columns: 1fr;
@@ -1069,6 +1321,21 @@ body {
 
     .faq-grid {
         grid-template-columns: 1fr;
+    }
+
+    .slideshow-container {
+        padding: 0 50px;
+        max-width: 350px;
+    }
+
+    .slide-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slide-nav svg {
+        width: 20px;
+        height: 20px;
     }
 
     .email-form {

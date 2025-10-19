@@ -74,7 +74,7 @@ We may update this Privacy Policy occasionally. We will notify users of material
 
 If you have any questions or requests, contact:
 
-**PlayLax, LLC**  
+**PlayLax LLC**  
 Email: support@playlax.app  
 Location: [Your business address]
 
@@ -84,7 +84,7 @@ Location: [Your business address]
 
 **Effective Date:** October 17, 2025
 
-These Terms & Conditions (“Terms”) govern your use of the PlayLax app (“App”), operated by PlayLax, LLC (“we”, “us”, “our”). By accessing or using the App, you agree to these Terms.
+These Terms & Conditions (“Terms”) govern your use of the PlayLax app (“App”), operated by PlayLax LLC (“we”, “us”, “our”). By accessing or using the App, you agree to these Terms.
 
 ## 1. Eligibility
 
@@ -143,6 +143,6 @@ These Terms are governed by the laws of the Commonwealth of Pennsylvania, United
 
 Questions about these Terms? Contact us:
 
-**PlayLax, LLC**  
+**PlayLax LLC**  
 Email: support@playlax.app  
 Location: [Your business address]

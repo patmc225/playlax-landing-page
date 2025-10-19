@@ -265,3 +265,114 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
+// Slideshow functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevButton = document.querySelector('.slide-nav.prev');
+    const nextButton = document.querySelector('.slide-nav.next');
+    let currentSlide = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Show slide function
+    function showSlide(index) {
+        // Wrap around
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        // Update slides
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === currentSlide);
+        });
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    // Next slide
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    // Previous slide
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // Event listeners for buttons
+    if (nextButton) {
+        nextButton.addEventListener('click', nextSlide);
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', prevSlide);
+    }
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Touch/swipe support
+    const slideshowWrapper = document.querySelector('.slideshow-wrapper');
+    if (slideshowWrapper) {
+        slideshowWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slideshowWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // minimum distance for a swipe
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swiped left - show next
+                nextSlide();
+            } else {
+                // Swiped right - show previous
+                prevSlide();
+            }
+        }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    });
+
+    // Optional: Auto-play (uncomment to enable)
+    const autoPlayInterval = 4000; // 4 seconds
+    let autoPlay = setInterval(nextSlide, autoPlayInterval);
+    
+    // Pause auto-play on hover
+    if (slideshowWrapper) {
+        slideshowWrapper.addEventListener('mouseenter', () => {
+             clearInterval(autoPlay);
+         });
+         
+         slideshowWrapper.addEventListener('mouseleave', () => {
+             autoPlay = setInterval(nextSlide, autoPlayInterval);
+         });
+     }
+});
+
